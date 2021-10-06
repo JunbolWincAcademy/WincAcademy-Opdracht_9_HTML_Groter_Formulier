@@ -1,0 +1,478 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 1500px;
+  margin: 0;
+  padding: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: rgb(199, 183, 162);
+}
+
+header {
+  display:flex;
+  justify-content: space-between;/*this put inside the header made the main menu to be push to the far right*/
+  align-items:flex-end;/* this dropped the nav_container down*/
+  position: fixed;
+  z-index: 1;
+  background-color: rgb(77, 164, 214);
+  width: 100%;
+  height: 150px;
+  padding-bottom: 1px;
+}
+
+.logo_container {
+  display:flex;
+  /*display: inline-block; I cancelled this and both the logo_container and the nav_container
+  still share the same horizontal line so apperantly once you use flexbox by writing display:flex;
+  you dont need the display:inline-block and all the rest*/
+  width: 150px;
+  /*background-color: rgb(243, 239, 4);*/
+  /*z-index: 1; /*this was the solution put the logo over the nav*/
+}
+.nav_container {
+  display:flex;
+  /*align-items:flex-end;/* this should dropped the ul down BUT IS NOT doing it*/
+  /*display: inline-block;  THIS WAS THE CAUSE OF THE ISSUE!!!! so I cancelled it*/
+  /* I wrote it because I was considering the nav_container a block in the group of two
+  blocks together with the logo_container, and I thought they both needed the inline-block 
+  so they both share the horizontal space on the header. But even after cancelling
+  the nav_container stayed there anyway, so I cancelled also on the logo_container too
+  and they both are intact so now I am confused. SOLUTION FOUND: Because I am using now
+  Flexbox I should not use the Display: inline-block andymore and for now I need to disable
+  also the align-items: flex-end so I can adjust the position of the ul there.*/
+  width: 500px;
+  height: 140px;
+  /*background-color: rgb(9, 30, 224);*/
+  margin-right: 20px;
+}
+
+ul {
+  margin-top: 85px;/* this was the only solution to push the ul down on the bottom of the nav_container
+  so I managed to fix the issue by cancelling the display: inline-block declaration on the nav_container
+  so no I activate the margin-top to adjust the position of the ul, but first I have disable the align_items:flex-end declarion on
+  the nav_container. With 90px from the top of the nav_container the main menu is align horizontally with the base of the logo. Now
+  I need to work on the Media Queries so the on mobiles the menu fall under the logo and in vertical list*/
+  display:flex;
+  align-items: center;/* this dropped the main nav down*/
+  justify-content: flex-end;/* this pushed the main nav to the far right*/
+  height: 40px;
+  width: 500px;
+  padding: 0px 0px;
+  /*background-color: rgb(127, 6, 241);*/
+}
+
+li {
+  list-style: none;
+  padding:5px 5px;
+  font-size: 20px;
+  display: inline;
+  margin: 0px 10px;
+}
+
+li:hover {
+  background-color: orange;
+}
+
+.ul-hobbies {
+  list-style-type: circle;
+  padding-top: 5px;
+  margin-top: 150px;
+  text-align: left; /*this what is pussing the links to the far right in the div container*/
+  position: absolute; /*this was the solution put that in absolute*/
+  margin-left: 25%; /*this what is pussing the nav to the far right*/
+  display: inline-block;
+}
+
+.hobbies-list {
+  list-style-type: circle;
+  padding-top: 5px;
+  text-align: left; /*this what is pussing the links to the far right in the div container*/
+  position: relative; /*this was the solution put that in absolute*/
+  display: block;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  /*background-color: rgb(218, 233, 16);*/
+  position: relative;
+  text-align: center;
+  position: absolute; /* this is was making the <main> not to touch the <header> it was with the CSS value relative
+  But I didnt what to use margin-top to bring the main down so I put it back to relative and gave 1px padding
+  so now they are touching, but why 1 px value fixed it ?????? Another way to fix this was to give a neg margin of -20 on the top but I don't want 
+  to use negative values*/
+  top: 0px;
+  height: 600px;
+  width: 100%;
+  margin-top: 600px;
+  padding-bottom: 50px;
+  /* margin-top: 200px; I tried to use this but it brought the header down 200px ????? why this in the main is affecting the header*/
+  background-image: url("../images/santa_teresa.jpg");
+  /*background-color: rgb(157, 255, 0);*/
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-repeat: no-repeat;
+}
+
+.main_form {
+  /*background-color: rgb(218, 233, 16);*/
+  text-align: center;
+  position: absolute; /* this is was making the <main> not to touch the <header> it was with the CSS value relative
+  But I didnt what to use margin-top to bring the main down so I put it back to relative and gave 1px padding
+  so now they are touching, but why 1 px value fixed it ?????? Another way to fix this was to give a neg margin of -20 on the top but I don't want 
+  to use negative values*/
+  top: 0px;
+  height: 1000px;
+  width: 100%;
+  margin-top: 100px;
+  padding-bottom: 50px;
+  /* margin-top: 200px; I tried to use this but it brought the header down 200px ????? why this in the main is affecting the header*/
+  background-image: url("../images/santa_teresa.jpg");
+  /*background-color: rgb(157, 255, 0);*/
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-repeat: no-repeat;
+  display: relative;
+}
+
+.article {
+  width: 90%;
+  display: inline-block;
+}
+
+h1 {
+  color: white;
+  font-family: "Helvetica black", sans-serif;
+  font-size: 2.5em;
+  font-weight: 350;
+  margin-top: 15px;
+  /*background-color: rgb(247, 198, 107);*/
+  display: inline-block;
+}
+
+.h1-left {
+  text-align: left;
+  margin-left: 2%;
+  font-size: 4em;
+  display: inline-block;
+}
+
+.hobbies {
+  color: rgb(3, 240, 208);
+  font-family: "Helvetica", sans-serif;
+  font-size: 3.5em;
+  position: absolute;
+  margin-top: 500px;
+  font-weight: 300;
+  text-align: left;
+  margin: 20px 10px 0px 60px;
+  margin-left: 25%;
+  display: inline-block;
+  border: white solid 2px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+h3 {
+  color: rgb(3, 240, 208);
+  font-family: "Helvetica", sans-serif;
+  font-size: 2.5em;
+  font-weight: 300;
+  text-align: left;
+  margin: 20px 10px 0px 60px;
+  margin-left: 25%; /*this what is pussing the nav to the right*/
+  display: inline-block;
+  border: white solid 2px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.Send {
+  color: rgb(3, 240, 208);
+  font-family: "Helvetica", sans-serif;
+  font-size: 2.5em;
+  font-weight: 300;
+  margin: 20px 10px 0px 30px;
+  margin-left: 2%; /*this what is pussing the nav to the right*/
+  display: inline-block;
+  border: white solid 2px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.fig-photo {
+  text-align: left;
+  height: 300px;
+  width: 300px;
+  background-color: aqua;
+  margin: 90px 10px 0px 40px;
+  display: inline-block;
+}
+
+p {
+  color: rgb(0, 0, 0);
+  text-align: left;
+  margin: 40px 10px 0px 30%;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.p-color {
+  color: white;
+  margin: 20px 10px 10px 2%;
+  max-width: 80%;
+  min-width: 20%;
+  display: inline-block;
+}
+
+form {
+  margin:auto;
+  padding: 20px 20px;
+  background-color: darkcyan;
+  width: 300px;
+  height: 850px;
+  position: relative;
+  text-align: left;
+}
+
+.footer_form {
+  /*background-color: rgb(255, 146, 5);*/
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.7em;
+  position: absolute;
+  margin-top: 1250px;
+  display: block;
+}
+
+footer {
+  /*background-color: rgb(255, 146, 5);*/
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.7em;
+  position: absolute;
+  margin-top: 900px;
+  display: block;
+}
+
+.btnsubmit {
+width: 80px;
+height: 30px;
+}
+.btnsubmit:hover {
+  background-color: aquamarine;
+  }
+
+
+
+
+
+
+
+
+
+
+
+/*MEDIA QUERIES Mobile First 
+ Smartphones (portrait)*/
+ @media (min-width: 320px) {
+  * {
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+ 
+  p {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  }
+
+  header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height:310px;
+  text-align: center; /*this centers the logo in the logo_container*/
+  }
+
+  .logo_container {
+    display: block;
+    width: 100%;
+    /*background-color: rgb(243, 239, 4);*/
+  }
+
+  .nav_container {
+    display: block;
+    /*text-align: center;*/
+    width: 100%;
+    height: 100%;
+    /*background-color: rgb(9, 30, 224);*/
+    margin-right: 0px; /* by putting this back to cero now the li's cover the whole horizontal line*/
+  }
+
+  ul {
+    display:flex;
+    margin-top: 0px;/* this was the only solution to push the ul down on the bottom of the nav_container
+    so I managed to fix the issue by cancelling the display: inline-block declaration on the nav_container
+    so no I activate the margin-top to adjust the position of the ul, but first I have disable the align_items:flex-end declarion on
+    the nav_container. With 90px from the top of the nav_container the main menu is align horizontally with the base of the logo. Now
+    I need to work on the Media Queries so the on mobiles the menu fall under the logo and in vertical list*/
+    flex-wrap: wrap;/* I put this here but is not working*/
+    width: 100%;
+    height: 150px;
+    padding: 0px 0px;
+    /*background-color: rgb(127, 6, 241);*/
+    text-align: center;
+  }
+
+  li {
+    list-style: none;
+    width: 100%;
+    height: 30px;
+    padding:5px 5px;
+    font-size: 20px;
+    display: inline;
+    margin: 0px 0px;
+  }
+  main {
+    margin-top: 310px;
+    padding-bottom: 50px;
+    position: absolute;
+  }
+
+  .Send {
+    color: rgb(3, 240, 208);
+    font-family: "Helvetica", sans-serif;
+    font-size: 2em;
+    font-weight: 300;
+    margin: 20px 10px 0px 30px;
+    margin-left: 2%; /*this what is pussing the nav to the right*/
+    display: inline-block;
+    border: white solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+}
+
+
+
+
+
+/*
+  Tablets (portrait)
+@media (min-width: 768px) {
+  body {
+    background-color: blue
+  }
+  
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+*/
+
+
+
+
+
+
+
+
+ /*Desktop*/
+
+@media (min-width: 1024px) {
+
+  body {
+    /*background-color: blue*/
+  }
+  
+  p {
+  font-size: 1rem;
+  line-height: normal;
+  }
+
+  header {
+    display: flex;
+    flex-wrap: nowrap;
+    height:150px;
+    padding:0%;
+    margin:0%;
+    width: 100%;
+    /*background-color: blue;*/
+    justify-content: space-between;/*this put inside the header made the main menu to be push to the far right*/
+  }
+
+  .logo_container {
+    display:inline-block;
+    /*display: inline-block; I cancelled this and both the logo_container and the nav_container
+    still share the same horizontal line so apperantly once you use flexbox by writing display:flex;
+    you dont need the display:inline-block and all the rest*/
+    width: 150px;
+    padding:0%;
+    margin:0%;
+    /*background-color: rgb(243, 239, 4);*/
+    /*z-index: 1; /*this was the solution put the logo over the nav*/
+  }
+
+  .nav_container {
+    display: inline-block;
+    flex-wrap: nowrap;
+    width: 500px;
+    height: 140px;
+  }
+
+  ul {
+    margin-top: 85px;/* this was the only solution to push the ul down on the bottom of the nav_container
+    so I managed to fix the issue by cancelling the display: inline-block declaration on the nav_container
+    so no I activate the margin-top to adjust the position of the ul, but first I have disable the align_items:flex-end declarion on
+    the nav_container. With 90px from the top of the nav_container the main menu is align horizontally with the base of the logo. Now
+    I need to work on the Media Queries so the on mobiles the menu fall under the logo and in vertical list*/
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: center;/* this dropped the main nav down*/
+    justify-content: flex-end;/* this pushed the main nav to the far right*/
+    height: 40px;
+    width: 500px;
+    /*background-color: rgb(127, 6, 241);*/
+  }
+
+  li {
+    list-style: none;
+    padding:5px 5px;
+    font-size: 20px;
+    display: inline;
+    margin: 0px 10px;
+  }
+  main {
+    margin-top: 150px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    position: absolute;
+  }
+
+  .Send {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin: 20px 10px 0px 30px;
+    margin-left: 2%; /*this what is pussing the nav to the right*/
+    display: inline-block;
+    border: white solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+}
